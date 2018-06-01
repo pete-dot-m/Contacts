@@ -1,0 +1,13 @@
+{
+  "name": "contacts",
+  "version": "1.0.0",
+  "description": "dotnet core learning project",
+  "main": "index.js",
+  "scripts": {
+    "build": "dotnet build contacts.sln",
+    "start": "dotnet start ./ConcatctsApi/ContactsApi.csproj",
+    "test": "dotnet test ./UnitTests/UnitTests.csproj"
+  },
+  "author": "pete.mcquain@gmail.com",
+  "license": "ISC"
+}

@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "664450e4-fa0c-4e63-9be6-e4542fc595c0",
+		"name": "ContactsApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET-/Contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{contacts_uri}}/Contacts",
+					"host": [
+						"{{contacts_uri}}"
+					],
+					"path": [
+						"Contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-/Contacts/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{contacts_uri}}/Contacts/{{$guid}}",
+					"host": [
+						"{{contacts_uri}}"
+					],
+					"path": [
+						"Contacts",
+						"{{$guid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-/Contacts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "31995b3b-1e9a-4fe1-9c39-a288d20ba292",
+						"type": "text/javascript",
+						"exec": [
+							"var json = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"current_id\", json.args.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": null,\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"McQuain\",\n\t\"isFamilyMember\": false,\n\t\"company\": \"IronMan\",\n\t\"jobTitle\": \".Net Developer\",\n\t\"email\": \"pete.mcquain@gmai.com\",\n\t\"mobilePhone\": \"8139565092\",\n\t\"dateOfBirth\": \"1971-08-20T00:00:00\",\n\t\"anniversaryDate\": \"1996-11-16T00:00:00\"\n}\n"
+				},
+				"url": {
+					"raw": "{{contacts_uri}}/contacts",
+					"host": [
+						"{{contacts_uri}}"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT-/Contacts/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"b6c72c88-6245-4a2f-b585-81b3471c263f\",\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"McQuain\",\n\t\"isFamilyMember\": false,\n\t\"company\": \"IronMan\",\n\t\"jobTitle\": \".Net Developer\",\n\t\"email\": \"pete.mcquain@gmai.com\",\n\t\"mobilePhone\": \"8139565092\",\n\t\"dateOfBirth\": \"1971-08-20T00:00:00\",\n\t\"anniversaryDate\": \"1996-11-16T00:00:00\"\n}\n"
+				},
+				"url": {
+					"raw": "{{contacts_uri}}/contacts/b6c72c88-6245-4a2f-b585-81b3471c263f",
+					"host": [
+						"{{contacts_uri}}"
+					],
+					"path": [
+						"contacts",
+						"b6c72c88-6245-4a2f-b585-81b3471c263f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE-/Contacts/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{contacts_uri}}/contacts/b6c72c88-6245-4a2f-b585-81b3471c263f",
+					"host": [
+						"{{contacts_uri}}"
+					],
+					"path": [
+						"contacts",
+						"b6c72c88-6245-4a2f-b585-81b3471c263f"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "41023d91-901e-44cd-8394-713fe2f71fed",
+			"key": "uri",
+			"value": "http://localhost:5000/api",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
